@@ -4,12 +4,12 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>내가 좋아하는 한국의 산 TOP 5</title>
-<style>
+  <style>
     body {
       font-family: Arial, sans-serif;
       margin: 0;
       padding: 0;
-      background-color: #f4f4f4;
+      background-color: #e0f7fa; /* 이미지와 어울리는 배경색 */
     }
     .container {
       max-width: 1200px;
@@ -60,8 +60,7 @@
       width: 100%;
       height: 100%;
       overflow: auto;
-      background-color: rgb(0,0,0);
-      background-color: rgba(0,0,0,0.4);
+      background-color: rgba(0, 0, 0, 0.8);
       padding-top: 60px;
     }
     .modal-content {
@@ -83,9 +82,15 @@
       text-decoration: none;
       cursor: pointer;
     }
+    .gallery {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
     .gallery img {
       width: 500px;
       height: auto;
+      margin-bottom: 10px; /* 이미지 사이 간격 */
     }
   </style>
 </head>
