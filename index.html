@@ -61,13 +61,15 @@
       height: 100%;
       overflow: auto;
       background-color: rgba(0, 0, 0, 0.8);
-      padding-top: 60px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
     }
     .modal-content {
       background-color: #fefefe;
       padding: 20px;
       border: 1px solid #888;
-      width: 540px; 
+      width: 540px; /* 모달 크기 이미지에 어울리게 조정 */
       max-height: 90vh;
       overflow-y: auto;
     }
@@ -93,6 +95,11 @@
       height: auto;
       margin-bottom: 10px; /* 이미지 사이 간격 */
     }
+    .gallery-title {
+      text-align: center;
+      font-size: 24px;
+      margin-bottom: 20px;
+    }
   </style>
 </head>
 <body>
@@ -103,7 +110,7 @@
       <img src="jiri.jpg" alt="지리산">
       <div class="mountain-description">
         <h2 onclick="openModal('mountain1', '지리산')">1. 지리산(천왕봉, 해발 1915m)</h2>
-        <p>지리산은 지리산은 경상남도, 전라남도, 전북특별자치도에 걸쳐 있는 산이다. 주봉인 천왕봉 외에 반야봉, 연화봉, 바래봉을 비롯하여 뱀사골, 피아골, 한신계곡이 유명하다. 지리산은 사계절 모두 아름다워 연간 300만명이 찾는다.</p>
+        <p>지리산은 경상남도, 전라남도, 전북특별자치도에 걸쳐 있는 산이다. 주봉인 천왕봉 외에 반야봉, 연화봉, 바래봉을 비롯하여 뱀사골, 피아골, 한신계곡이 유명하다. 지리산은 사계절 모두 아름다워 연간 300만명이 찾는다.</p>
       </div>
     </div>
 
@@ -118,7 +125,7 @@
     <div class="mountain">
       <img src="sa.jpg" alt="설악산">
       <div class="mountain-description">
-        <h2 onclick="openModal('mountain3','설악산')">3. 설악산(대청봉, 해발 1708m</h2>
+        <h2 onclick="openModal('mountain3', '설악산')">3. 설악산(대청봉, 해발 1708m)</h2>
         <p>백두대간에 위치한 강원특별자치도의 명산. 속초시와 양양군·고성군·인제군에 걸쳐 있다. 대청봉을 기준으로 바다쪽이 외설악, 내륙쪽이 내설악이며 이 사이에 설악산에서 가장 아름다운 공룡능선이 있다. </p>
       </div>
     </div>
@@ -126,7 +133,7 @@
     <div class="mountain">
       <img src="hr.jpg" alt="한라산">
       <div class="mountain-description">
-        <h2 onclick="openModal('mountain4','한라산')">4. 한라산(백록담, 해발 1947m)</h2>
+        <h2 onclick="openModal('mountain4', '한라산')">4. 한라산(백록담, 해발 1947m)</h2>
         <p>한라산은 제주도에 위치한 남한에서 가장 높은 산으로 국립공원 전역이 유네스코 세계유산으로 지정되었다. 금강산, 지리산과 함께 대한민국 삼신산 중 하나로 꼽힌다. 남한 최고봉이지만 난이도는 상대적으로 낮으며, 멋진 풍광을 보며 한라산 정상을 오르고 싶은 경우 관음사~성판악 코스가 좋다.</p>
       </div>
     </div>
@@ -145,7 +152,7 @@
   <div id="myModal" class="modal">
     <div class="modal-content">
       <span class="close">&times;</span>
-      <div class="gallery-title">사진 갤러리</div>
+      <div class="gallery-title" id="gallery-title"></div>
       <div class="gallery" id="gallery"></div>
     </div>
   </div>
@@ -154,6 +161,7 @@
     const modal = document.getElementById('myModal');
     const span = document.getElementsByClassName('close')[0];
     const gallery = document.getElementById('gallery');
+    const galleryTitle = document.getElementById('gallery-title');
 
     const mountainImages = {
       'mountain1': ['jiri1.jpg', 'jiri2.jpg', 'jiri3.jpg'],
@@ -168,7 +176,6 @@
       galleryTitle.textContent = mountainName + " 갤러리";
       modal.style.display = "block";
     }
-
 
     span.onclick = function() {
       modal.style.display = "none";
