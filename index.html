@@ -102,7 +102,7 @@
     <div class="mountain">
       <img src="jiri.jpg" alt="지리산">
       <div class="mountain-description">
-        <h2 onclick="openModal('mountain1')">1. 지리산(천왕봉, 해발 1915m)</h2>
+        <h2 onclick="openModal('mountain1', '지리산')">1. 지리산(천왕봉, 해발 1915m)</h2>
         <p>지리산은 지리산은 경상남도, 전라남도, 전북특별자치도에 걸쳐 있는 산이다. 주봉인 천왕봉 외에 반야봉, 연화봉, 바래봉을 비롯하여 뱀사골, 피아골, 한신계곡이 유명하다. 지리산은 사계절 모두 아름다워 연간 300만명이 찾는다.</p>
       </div>
     </div>
@@ -110,7 +110,7 @@
     <div class="mountain">
       <img src="dy.jpg" alt="덕유산">
       <div class="mountain-description">
-        <h2 onclick="openModal('mountain2')">2. 덕유산(향적봉, 해발 1614m)</h2>
+        <h2 onclick="openModal('mountain2', '덕유산')">2. 덕유산(향적봉, 해발 1614m)</h2>
         <p>덕유산은 전북특별자치도에 있는 무주군, 장수군과 경상남도에 있는 함양군, 거창군에 걸친 산이다. 소백산과 마찬가지로 고위 평탄면이 아주 인상적으로 특히 동엽령과 향적봉 사이에 있는 덕유평전은 여름, 겨울 아름답기로 유명하다.</p>
       </div>
     </div>
@@ -118,7 +118,7 @@
     <div class="mountain">
       <img src="sa.jpg" alt="설악산">
       <div class="mountain-description">
-        <h2 onclick="openModal('mountain3')">3. 설악산(대청봉, 해발 1708m</h2>
+        <h2 onclick="openModal('mountain3','설악산')">3. 설악산(대청봉, 해발 1708m</h2>
         <p>백두대간에 위치한 강원특별자치도의 명산. 속초시와 양양군·고성군·인제군에 걸쳐 있다. 대청봉을 기준으로 바다쪽이 외설악, 내륙쪽이 내설악이며 이 사이에 설악산에서 가장 아름다운 공룡능선이 있다. </p>
       </div>
     </div>
@@ -126,7 +126,7 @@
     <div class="mountain">
       <img src="hr.jpg" alt="한라산">
       <div class="mountain-description">
-        <h2 onclick="openModal('mountain4')">4. 한라산(백록담, 해발 1947m)</h2>
+        <h2 onclick="openModal('mountain4','한라산')">4. 한라산(백록담, 해발 1947m)</h2>
         <p>한라산은 제주도에 위치한 남한에서 가장 높은 산으로 국립공원 전역이 유네스코 세계유산으로 지정되었다. 금강산, 지리산과 함께 대한민국 삼신산 중 하나로 꼽힌다. 남한 최고봉이지만 난이도는 상대적으로 낮으며, 멋진 풍광을 보며 한라산 정상을 오르고 싶은 경우 관음사~성판악 코스가 좋다.</p>
       </div>
     </div>
@@ -134,7 +134,7 @@
     <div class="mountain">
       <img src="bh.jpg" alt="북한산">
       <div class="mountain-description">
-        <h2 onclick="openModal('mountain5')">5. 북한산(백운대, 해발 837m)</h2>
+        <h2 onclick="openModal('mountain5', '북한산')">5. 북한산(백운대, 해발 837m)</h2>
         <p>서울특별시 은평구, 서대문구, 종로구, 성북구, 강북구 및 경기도 고양시 덕양구 일원에 걸쳐 있는 봉우리들을 아울러 북한산으로 일컫는다. 서울시내에서 대중교통으로 쉽게 접근할 수 있으며, 봄, 여름, 가을, 겨울 사계절 모두 풍광이 아름다워 내국인은 물론 외국인에게도 인기가 많다.</p>
       </div>
     </div>
@@ -145,6 +145,7 @@
   <div id="myModal" class="modal">
     <div class="modal-content">
       <span class="close">&times;</span>
+      <div class="gallery-title">사진 갤러리</div>
       <div class="gallery" id="gallery"></div>
     </div>
   </div>
@@ -162,10 +163,12 @@
       'mountain5': ['bh1.jpg', 'bh2.jpg', 'bh3.jpg']
     };
 
-    function openModal(mountainId) {
+    function openModal(mountainId, mountainName) {
       gallery.innerHTML = mountainImages[mountainId].map(image => `<img src="${image}" alt="${mountainId}">`).join('');
+      galleryTitle.textContent = mountainName + " 갤러리";
       modal.style.display = "block";
     }
+
 
     span.onclick = function() {
       modal.style.display = "none";
