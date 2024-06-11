@@ -160,7 +160,10 @@
   </div>
 
   <script>
-    const modal = document.getElementById('myModal');
+    document.addEventListener('DOMContentLoaded', function() {
+      const modal = document.getElementById('myModal');
+      modal.style.display = "none";
+    });
     const span = document.getElementsByClassName('close')[0];
     const gallery = document.getElementById('gallery');
     const galleryTitle = document.getElementById('gallery-title');
