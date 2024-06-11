@@ -162,38 +162,41 @@
   <script>
     document.addEventListener('DOMContentLoaded', function() {
       const modal = document.getElementById('myModal');
-      modal.style.display = "none";
-    });
-    const span = document.getElementsByClassName('close')[0];
-    const gallery = document.getElementById('gallery');
-    const galleryTitle = document.getElementById('gallery-title');
+      const span = document.getElementsByClassName('close')[0];
+      const gallery = document.getElementById('gallery');
+      const galleryTitle = document.getElementById('gallery-title');
 
-    const mountainImages = {
-      'mountain1': ['jiri1.jpg', 'jiri2.jpg', 'jiri3.jpg'],
-      'mountain2': ['dy1.jpg', 'dy2.jpg', 'dy3.jpg'],
-      'mountain3': ['sa1.jpg', 'sa2.jpg', 'sa3.jpg'],
-      'mountain4': ['hr1.jpg', 'hr2.jpg', 'hr3.jpg'],
-      'mountain5': ['bh1.jpg', 'bh2.jpg', 'bh3.jpg']
-    };
+      const mountainImages = {
+        'mountain1': ['jiri1.jpg', 'jiri2.jpg', 'jiri3.jpg'],
+        'mountain2': ['dy1.jpg', 'dy2.jpg', 'dy3.jpg'],
+        'mountain3': ['sa1.jpg', 'sa2.jpg', 'sa3.jpg'],
+        'mountain4': ['hr1.jpg', 'hr2.jpg', 'hr3.jpg'],
+        'mountain5': ['bh1.jpg', 'bh2.jpg', 'bh3.jpg']
+      };
 
-    function openModal(mountainId, mountainName) {
-      gallery.innerHTML = mountainImages[mountainId].map(image => `<img src="${image}" alt="${mountainId}">`).join('');
-      galleryTitle.textContent = mountainName + " 갤러리";
-      modal.style.display = "block";
-    }
+      function openModal(mountainId, mountainName) {
+        gallery.innerHTML = mountainImages[mountainId].map(image => `<img src="${image}" alt="${mountainId}">`).join('');
+        galleryTitle.textContent = mountainName + " 갤러리";
+        modal.style.display = "block";
+      }
 
-    span.onclick = function() {
-      modal.style.display = "none";
-    }
-
-    window.onclick = function(event) {
-      if (event.target == modal) {
+      span.onclick = function() {
         modal.style.display = "none";
       }
-    }
-    window.onload = function() {
-      modal.style.display = "none";
-    };
+
+      window.onclick = function(event) {
+        if (event.target == modal) {
+          modal.style.display = "none";
+        }
+      }
+
+      window.onload = function() {
+        modal.style.display = "none";
+      };
+      
+      // 전역 범위에 함수 등록
+      window.openModal = openModal;
+    });
   </script>
 </body>
 </html>
